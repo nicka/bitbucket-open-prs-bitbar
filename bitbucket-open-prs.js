@@ -26,13 +26,14 @@ https.get(domain + "/" + path, function(res) {
   res.on("end", function() {
     $ = cheerio.load(body);
     $("#pullrequests tbody tr").each(function(index) {
+      var date = $(this).find(".date time").text();
       var user = $(this).find(".user a").attr("title");
       var pr = $(this).find(".flex-content--primary a").attr("title");
       var repo = $(this).find(".repo span").text();
       var link = $(this).find(".flex-content--primary a").attr("href");
       var approved = $(this).find(".flex-content--secondary").find("a.approved").attr("title");
       if (approved === undefined) {
-        prs.push(repo + " - " + user + " - " + pr + " | href=" + domain + "" + link + " size=" + font_size);
+        prs.push(date + " - " + repo + " - " + user + " - " + pr + " | href=" + domain + "" + link + " size=" + font_size);
       }
     });
     // Output
