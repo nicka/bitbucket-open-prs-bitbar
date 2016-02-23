@@ -33,7 +33,7 @@ https.get(domain + "/" + path, function(res) {
       var link = $(this).find(".flex-content--primary a").attr("href");
       var approved = $(this).find(".flex-content--secondary").find("a.approved").attr("title");
       if (approved === undefined) {
-        var string = truncate(date + " - " + repo + " - " + user + " - " + pr);
+        var string = truncate(date + " - " + user + " - " + repo + " - " + pr);
         prs.push(string + " | href=" + domain + "" + link + " size=" + font_size);
       }
     });
