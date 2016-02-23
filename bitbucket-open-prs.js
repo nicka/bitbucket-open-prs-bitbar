@@ -33,7 +33,8 @@ https.get(domain + "/" + path, function(res) {
       var link = $(this).find(".flex-content--primary a").attr("href");
       var approved = $(this).find(".flex-content--secondary").find("a.approved").attr("title");
       if (approved === undefined) {
-        prs.push(date + " - " + repo + " - " + user + " - " + pr + " | href=" + domain + "" + link + " size=" + font_size);
+        var string = truncate(date + " - " + repo + " - " + user + " - " + pr);
+        prs.push(string + " | href=" + domain + "" + link + " size=" + font_size);
       }
     });
     // Output
@@ -46,3 +47,12 @@ https.get(domain + "/" + path, function(res) {
 }).on('error', function(e) {
   console.log("Got error: " + e.message);
 });
+
+function truncate(string) {
+  var max = 80;
+  if (string.length > max) {
+    return string.substring(0, max) + "...";
+  } else {
+    return string;
+  }
+};
