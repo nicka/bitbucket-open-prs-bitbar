@@ -1,0 +1,14 @@
+{
+  "author": "Nick den Engelsman <nickdenengelsman@gmail.com>",
+  "name": "bitbucket-open-prs",
+  "description": "Display open PR's",
+  "dependencies": {
+    "https": ">= 0.0.0",
+    "cheerio": ">= 0.1.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/nick/bitbucket-open-prs-bitbar.git"
+  }
+}
